@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +7,7 @@
     margin: 0;
     padding: 0;
     font-smooth: auto;
+    
 }
 
 *:focus {
@@ -30,4 +32,25 @@ html, body {
     width: 100vw;
     font-size: 1.6rem;
     overflow: hidden;
+    font-family: 'Anek Tamil';
+}
+
+.dialogue-background {
+    padding: 1.5rem;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
+    border: 1px solid rgba(117, 117, 117, 0.48);
+    border-radius: 4px;
+}
+
+.dialogue-button {
+    padding: 1rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(153, 153, 153, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 4px;
+}
+
+.selected {
+    border: 1px solid rgba(134, 133, 239, 0.4);
+    background: linear-gradient(90deg, rgba(134, 133, 239, 0.64) 0%, rgba(134, 133, 239, 0.2176) 100%);
 }

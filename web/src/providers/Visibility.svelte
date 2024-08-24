@@ -29,12 +29,13 @@
 
 <style>
     main {
-        position: absolute;
-        left: 0;
-        top: 0;
         z-index: 100;
         user-select: none;
+        position: absolute;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: end;
         padding: 0;
         margin: 0;
         height: 100vh;

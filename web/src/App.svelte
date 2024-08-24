@@ -2,7 +2,7 @@
     import { CONFIG, IS_BROWSER } from './stores/stores';
     import { InitialiseListen } from '@utils/listeners';
     import Visibility from '@providers/Visibility.svelte';
-    import ImageHolder from '@components/ImageHolder.svelte';
+    import Dialogue from '@components/Dialogue.svelte';
 
     CONFIG.set({
         fallbackResourceName: 'debug',
@@ -13,7 +13,7 @@
 </script>
 
 <Visibility>
-    <ImageHolder />
+    <Dialogue />
 </Visibility>
 
 {#if import.meta.env.DEV}
