@@ -7,10 +7,10 @@ function CreateCam(ped)
     cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", x, y, z, camRot.x, camRot.y, camRot.z + 181.0, GetGameplayCamFov(), false, 0)
 
     SetCamActive(cam, true)
-    RenderScriptCams(true, true, 1000, true, true)
+    RenderScriptCams(true, true, Config.transitionTime, true, true)
 end
 
 function DestroyCamera()
-    RenderScriptCams(false, true, 1000, true, false)
+    RenderScriptCams(false, true, Config.transitionTime, true, false)
     DestroyCam(cam, false)
 end

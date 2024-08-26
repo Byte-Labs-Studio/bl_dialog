@@ -13,15 +13,8 @@ lua54 'yes'
 -- ui_page 'build/index.html'
 ui_page 'http://localhost:3000/' --for dev
 
-shared_script {
-    'shared/**'
-}
-
-server_script {
-    'server/**'
-}
-
 client_script {
+    'data/config.lua',
     'client/**',
 }
 

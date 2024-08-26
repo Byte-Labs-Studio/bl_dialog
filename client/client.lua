@@ -29,7 +29,7 @@ local function cleanFunction(filter)
 end
 
 local function findDialogById(id)
-    for k,v in ipairs(currentDialog) do
+    for k, v in ipairs(currentDialog) do
         if v.id == id then
             return Utils.table_deepclone(v), k
         end
@@ -38,7 +38,7 @@ end
 
 local function switchDialog(id)
     local dialog, index = findDialogById(id)
-    assert(dialog, 'Dialog with id:'..id.. ' doesnt exist')
+    assert(dialog, 'Dialog with id:' .. id .. ' doesnt exist')
 
     currentDialogId = index
     dialog.buttons = cleanFunction(dialog.buttons)
@@ -49,6 +49,12 @@ exports('switchDialog', switchDialog)
 
 local function showDialog(data)
     assert(data and data.dialog, 'dialog data is invalid!')
+
+    LocalPlayer.state.isDialogOpen = true
+
+    SetTimeout(Config.transitionTime, function()
+        SetEntityAlpha(PlayerPedId(), 0, true)
+    end)
 
     if data.ped then
         CreateCam(data.ped)
@@ -70,6 +76,8 @@ end
 exports('showDialog', showDialog)
 
 local function hideDialog(resolveData)
+    ResetEntityAlpha(PlayerPedId())
+    LocalPlayer.state.isDialogOpen = false
     Utils.sendNUIEvent('resource:visible', false)
     SetNuiFocus(false, false)
     dialogPromise:resolve(resolveData)
@@ -83,15 +91,21 @@ RegisterNUICallback('resource:close', function(_, cb)
 end)
 
 RegisterNUICallback('dialog:click', function(data, cb)
-    if not dialogPromise then cb(1) return end
+    if not dialogPromise then
+        cb(1)
+        return
+    end
 
     local index = data.index
     local button = currentDialog[currentDialogId] and currentDialog[currentDialogId].buttons[index]
 
-    if not button then cb(1) return end
+    if not button then
+        cb(1)
+        return
+    end
 
     if button.onSelect then
-        button.onSelect({switchDialog = switchDialog})
+        button.onSelect({ switchDialog = switchDialog })
     end
 
     if button.close then
@@ -105,41 +119,3 @@ RegisterNUICallback('dialog:click', function(data, cb)
 
     cb(1)
 end)
-
--- RegisterCommand('showdial', function()
---     print(showDialog({
---         ped = PlayerPedId(),
---         dialog = {
---             {
---                 id = 'fish_talk',
---                 job = 'TAXI SERVICE',
---                 name = 'Xirvin the bitch',
---                 text = 'first dialog',
---                 buttons = {
---                     {
---                         id = 'leave1',
---                         label = 'Switch',
---                         nextDialog = 'fish_catalog',
---                         close = true,
---                         onSelect = function()
---                             print('???')
---                         end
---                     },
---                 },
---             },
---             {
---                 id = 'fish_catalog',
---                 job = 'TAXI SERVICE',
---                 name = 'Xirvin the bitch',
---                 text = 'second dialogue',
---                 buttons = {
---                     {
---                         id = 'leave2',
---                         label = 'Switch',
---                         nextDialog = 'fish_talk',
---                     },
---                 },
---             }
---         }
---     }))
--- end, false)
