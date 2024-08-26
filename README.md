@@ -27,7 +27,7 @@ exports.bl_dialogue:showDialog({
                 {
                     id = 'leave1',
                     label = 'Give him fish',
-                    nextDialog = 'fisherman_talk_end', -- switch to second dialog
+                    nextDialog = 'fisherman_talk_end', -- switch to third dialog
                 },
             },
         },
