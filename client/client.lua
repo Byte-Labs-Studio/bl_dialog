@@ -105,7 +105,7 @@ RegisterNUICallback('dialog:click', function(data, cb)
     end
 
     if button.onSelect then
-        button.onSelect({ switchDialog = switchDialog })
+        button.onSelect(switchDialog)
     end
 
     if button.close then
