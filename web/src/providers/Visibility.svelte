@@ -35,7 +35,7 @@
         box-sizing: border-box;
         display: flex;
         justify-content: center;
-        align-items: end;
+        align-items: flex-end;
         padding: 0;
         margin: 0;
         height: 100vh;
