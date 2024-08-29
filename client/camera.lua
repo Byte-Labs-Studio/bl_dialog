@@ -8,6 +8,7 @@ function CreateCam(ped)
 
     SetCamActive(cam, true)
     RenderScriptCams(true, true, Config.transitionTime, true, true)
+    Wait(Config.transitionTime - 500)
 end
 
 function DestroyCamera()
