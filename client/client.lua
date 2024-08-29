@@ -53,7 +53,9 @@ local function showDialog(data)
     LocalPlayer.state.isDialogOpen = true
 
     SetTimeout(Config.transitionTime, function()
-        SetEntityAlpha(PlayerPedId(), 0, true)
+        if LocalPlayer.state.isDialogOpen then
+            SetEntityAlpha(PlayerPedId(), 0, true)
+        end
     end)
 
     if data.ped then
