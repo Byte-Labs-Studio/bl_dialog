@@ -106,12 +106,12 @@ RegisterNUICallback('dialog:click', function(data, cb)
         return
     end
 
-    if button.onSelect then
-        button.onSelect(switchDialog)
-    end
-
     if button.close then
         hideDialog(data.id or index)
+    end
+
+    if button.onSelect then
+        button.onSelect(switchDialog)
     end
 
     local nextId = button.nextDialog
