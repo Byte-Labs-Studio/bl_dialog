@@ -7,7 +7,7 @@ Preview: https://streamable.com/gz0get
 ## Code used for preview 
 
 ```lua
-exports.bl_dialogue:showDialog({
+exports.bl_dialog:showDialog({
     ped = ped,
     dialog = {
         {
