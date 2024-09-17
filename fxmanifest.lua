@@ -4,8 +4,8 @@ game "gta5"
 
 author "Byte Labs"
 version '1.0.0'
-description 'Byte Labs Svelte / CFX Lua template.'
-repository 'https://github.com/Byte-Labs-Project/bl_svelte_template'
+description 'Byte Labs Ped Dialog.'
+repository 'https://github.com/Byte-Labs-Project/bl_dialog'
 
 use_experimental_fxv2_oal 'yes'
 lua54 'yes'
