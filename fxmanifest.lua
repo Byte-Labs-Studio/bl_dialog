@@ -15,7 +15,9 @@ ui_page 'build/index.html'
 
 client_script {
     'data/config.lua',
-    'client/**',
+    'client/utils.lua',
+    'client/camera.lua',
+    'client/client.lua',
 }
 
 files {
