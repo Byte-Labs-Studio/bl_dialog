@@ -13,13 +13,36 @@
         name: string;
         text: string;
         buttons: Buttons[];
+        textSpeed?: number
     }
 
     let currentDialogue: Dialogue = {
-        job: '',
-        name: '',
-        text: '',
-        buttons: [],
+        job: 'test',
+        name: 'test',
+        text: 'Test',
+        buttons: [
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+            {
+                label: 'test',
+            },
+        ],
     };
 
     let displayedText = '';
@@ -30,7 +53,7 @@
         if (index < currentDialogue.text.length) {
             displayedText += currentDialogue.text.charAt(index);
             index++;
-            setTimeout(typeWriterEffect, 25);
+            setTimeout(typeWriterEffect, currentDialogue.textSpeed || 25);
         } else finish = true;
     }
 
@@ -62,21 +85,21 @@
 <div
     class="w-full h-[60%] absolute bg-gradient-to-t from-black to-transparent"
 ></div>
-<div class="w-[35%] h-[40%] z-10">
-    <p class="text-[#5e5cf4] font-[700]">{currentDialogue.job}</p>
-    <p class="text-white text-[36px] font-[700]">{currentDialogue.name}</p>
-    <div class="dialog-background">
-        <p>{displayedText}</p>
+<div class="min-w-[42vw] z-10 absolute bottom-[5%] min-h-[40vh]">
+    <p class="text-[#5e5cf4] font-[700] text-[0.8vw]">{currentDialogue.job}</p>
+    <p class="text-white text-[2vw] font-[700]">{currentDialogue.name}</p>
+    <div class="dialog-background w-[42vw]">
+        <p class="whitespace-normal break-all text-[0.8vw] font-[700]">{displayedText}</p>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 w-[90%] mt-5">
+    <div class="grid grid-cols-2 gap-[0.7vw] w-[90%] mt-5">
         {#if finish}
             {#each currentDialogue.buttons as item, index}
                 <button
                     on:click={() => selectButton(index + 1, item.id)}
-                    class="dialog-button flex items-center gap-5"
+                    class="dialog-button flex items-center gap-[0.7vw] text-left max-w-[20vw] whitespace-normal break-all text-[0.7vw]"
                 >
-                    <img src={HexSVG} alt="Hex Icon" width="18" height="18" />
+                    <img src={HexSVG} alt="Hex Icon" class="w-[1vw] h-[1vw]" />
                     {item.label}</button
                 >
             {/each}

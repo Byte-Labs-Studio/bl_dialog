@@ -36,7 +36,7 @@ html, body {
 }
 
 .dialog-background {
-    padding: 1.5rem;
+    padding: 0.7vw;
     box-sizing: border-box;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid rgba(117, 117, 117, 0.48);
@@ -44,7 +44,7 @@ html, body {
 }
 
 .dialog-button {
-    padding: 1rem;
+    padding: 0.6vw;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(153, 153, 153, 0) 100%);
     border: 1px solid rgba(255, 255, 255, 0.48);
     border-radius: 4px;
