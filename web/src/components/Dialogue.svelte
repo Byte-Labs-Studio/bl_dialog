@@ -89,7 +89,7 @@
     <p class="text-[#5e5cf4] font-[700] text-[0.8vw]">{currentDialogue.job}</p>
     <p class="text-white text-[2vw] font-[700]">{currentDialogue.name}</p>
     <div class="dialog-background w-[42vw]">
-        <p class="whitespace-normal break-all text-[0.8vw] font-[700]">{displayedText}</p>
+        <p class="whitespace-normal break-words overflow-wrap break-word text-[0.8vw] font-[700]">{displayedText}</p>
     </div>
 
     <div class="grid grid-cols-2 gap-[0.7vw] w-[90%] mt-5">
@@ -97,7 +97,7 @@
             {#each currentDialogue.buttons as item, index}
                 <button
                     on:click={() => selectButton(index + 1, item.id)}
-                    class="dialog-button flex items-center gap-[0.7vw] text-left max-w-[20vw] whitespace-normal break-all text-[0.7vw]"
+                    class="dialog-button flex items-center gap-[0.7vw] text-left max-w-[20vw] whitespace-normal break-words overflow-wrap break-word text-[0.7vw]"
                 >
                     <img src={HexSVG} alt="Hex Icon" class="w-[1vw] h-[1vw]" />
                     {item.label}</button
