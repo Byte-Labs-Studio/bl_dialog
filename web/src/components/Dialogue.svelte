@@ -89,7 +89,7 @@
     <p class="text-[#5e5cf4] font-[700] text-[0.8vw]">{currentDialogue.job}</p>
     <p class="text-white text-[2vw] font-[700]">{currentDialogue.name}</p>
     <div class="dialog-background w-[42vw]">
-        <p class="whitespace-normal break-words overflow-wrap break-word text-[0.8vw] font-[700]">{displayedText}</p>
+        <p class="whitespace-normal break-words overflow-wrap break-word text-[0.8vw] font-[700]">{@html displayedText}</p>
     </div>
 
     <div class="grid grid-cols-2 gap-[0.7vw] w-[90%] mt-5">
